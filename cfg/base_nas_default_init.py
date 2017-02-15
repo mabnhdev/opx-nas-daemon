@@ -34,7 +34,7 @@ direction_map = {
     "ingress_egress": 3
 }
 
-tm_config_file = "/etc/opx/dn_nas_default_init_config.xml"
+tm_config_file = "%s/etc/opx/dn_nas_default_init_config.xml" % os.environ.get("OPX_INSTALL_PATH","")
 
 
 def do_transaction(obj, op):
