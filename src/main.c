@@ -30,10 +30,22 @@
 
 #include <stdio.h>
 
+#ifndef ORIGINAL_DELL_CODE
+#include "nas_ndi_switch.h"
+#endif
+
 int main(int argc, char **argv) {
     if (hald_init()!=STD_ERR_OK) exit (1);
 
     sd_notify(0,"READY=1");
+
+#ifndef ORIGINAL_DELL_CODE
+    nas_ndi_switch_param_t param;
+    param.u32 = true;
+
+    if (ndi_switch_set_attribute(0, BASE_SWITCH_SWITCHING_ENTITIES_SWITCHING_ENTITY_SWITCH_SHELL_ENABLE, &param) != STD_ERR_OK)
+        fprintf(stderr,"Failed to initialize switch shell\n");
+#endif
 
     while (1) {
         sleep(1);
