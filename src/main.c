@@ -39,7 +39,8 @@ int main(int argc, char **argv) {
 
     sd_notify(0,"READY=1");
 
-#ifndef ORIGINAL_DELL_CODE
+/* #ifndef ORIGINAL_DELL_CODE */
+#if 0
     nas_ndi_switch_param_t param;
     param.u32 = true;
 
