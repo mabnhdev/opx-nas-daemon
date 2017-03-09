@@ -1,6 +1,6 @@
 [Unit]
 Description=Network abstraction service
-After=opx-cps.service
+After=opx-cps.service opx-pas.service
 DefaultDependencies=no
 
 [Service]
