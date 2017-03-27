@@ -4,8 +4,10 @@ After=opx-pas.service
 DefaultDependencies=no
 
 [Service]
+Type=forking
 EnvironmentFile=/etc/opx/opx-environment
-ExecStart=/usr/bin/opx_nas_daemon
+ExecStart=/usr/bin/opx_nas_daemon.sh
+PIDFile=/var/run/netserve.pid
 
 # Resource Limitations
 LimitCORE=infinity
